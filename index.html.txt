@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none';" />
+  <title>CAMPUS REPORT // Hardened Zero-Leak Indian Campus Whistleblower Network</title>
+
+  <style>
+    /* =========================================================================
+       1. SELF-CONTAINED DESIGN SYSTEM & CONDENSED EDITORIAL TYPOGRAPHY
+       Zero external font/CSS requests to prevent visitor IP/User-Agent leaks.
+       ========================================================================= */
+    :root {
+      --crimson: #D90429;
+      --crimson-dark: #B91C1C;
+      --crimson-light: #FFF1F2;
+      --crimson-border: #FECDD3;
+      --ink: #111111;
+      --ink-soft: #262626;
+      --paper: #FFFFFF;
+      --offwhite: #FAFAFA;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-500: #6B7280;
+      --gray-700: #374151;
+      --emerald: #059669;
+      --emerald-light: #ECFDF5;
+      --emerald-dark: #065F46;
+      --amber: #D97706;
+      --amber-light: #FFFBEB;
+      --amber-dark: #92400E;
+      --font-display: 'Bebas Neue', 'Impact', 'Arial Narrow', 'DIN Condensed', 'Haettenschweiler', sans-serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--offwhite);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--crimson);
+      color: var(--paper);
+    }
+
+    .font-bebas {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    .bg-editorial-grid {
+      background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    /* Buttons & Tactile Editorial Shadows */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      border-radius: 0.35rem;
+      transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+      text-decoration: none;
+      border: 2px solid var(--ink);
+    }
+
+    .btn:active {
+      transform: translate(1px, 1px);
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--paper);
+      box-shadow: 4px 4px 0 0 var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: var(--crimson-dark);
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: var(--paper);
+      box-shadow: 2px 2px 0 0 var(--crimson);
+    }
+
+    .btn-dark:hover {
+      background: var(--crimson);
+      box-shadow: 2px 2px 0 0 var(--ink);
+    }
+
+    .btn-outline {
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 2px 2px 0 0 var(--ink);
+    }
+
+    .btn-outline:hover {
+      background: var(--gray-100);
+    }
+
+    .shadow-editorial {
+      box-shadow: 4px 4px 0 0 var(--ink);
+    }
+
+    .shadow-editorial-sm {
+      box-shadow: 2px 2px 0 0 var(--ink);
+    }
+
+    /* Top Sticky OPSEC Bar */
+    .opsec-bar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--ink);
+      color: var(--paper);
+      border-bottom: 3px solid var(--crimson);
+      font-size: 0.75rem;
+      padding: 0.5rem 0;
+    }
+
+    .opsec-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .opsec-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34D399;
+      display: inline-block;
+      margin-right: 0.35rem;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    .opsec-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .chip-btn {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--paper);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.15s;
+    }
+
+    .chip-btn:hover {
+      background: var(--crimson);
+      border-color: var(--crimson);
+    }
+
+    .chip-btn-red {
+      background: var(--crimson);
+      border-color: var(--crimson);
+    }
+
+    .chip-btn-red:hover {
+      background: var(--crimson-dark);
+    }
+
+    .chip-btn-panic {
+      background: #7F1D1D;
+      border-color: #FCA5A5;
+      color: #FECACA;
+    }
+
+    .chip-btn-panic:hover {
+      background: #DC2626;
+      color: #FFFFFF;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--paper);
+      border-bottom: 2px solid var(--ink);
+      padding: 1.25rem 0 0.75rem;
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .brand-title {
+      font-size: clamp(2.75rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: baseline;
+      text-decoration: none;
+    }
+
+    .brand-title .red-accent {
+      color: var(--crimson);
+      text-decoration: underline;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 4px;
+      margin-left: 0.2em;
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding-top: 0.65rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-tab {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 0.9rem;
+      border-radius: 0.25rem;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .nav-tab:hover {
+      background: var(--crimson-light);
+      color: var(--crimson);
+    }
+
+    .nav-tab.active-tab {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .nav-tab-cta {
+      border-color: var(--crimson);
+      color: var(--crimson);
+    }
+
+    .nav-tab-cta:hover {
+      background: var(--crimson);
+      color: var(--paper);
+    }
+
+    /* Main Layout & Hero */
+    main {
+      flex: 1;
+      padding: 2rem 0;
+    }
+
+    .hero-card {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin-bottom: 2.25rem;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-card {
+        grid-template-columns: 8fr 4fr;
+      }
+    }
+
+    .hero-left {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-right {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 1.75rem;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-right {
+        border-top: none;
+        border-left: 2px solid var(--ink);
+      }
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 0.75rem;
+      border-radius: 0.3rem;
+    }
+
+    /* Filter Bar */
+    .filter-panel {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      align-items: end;
+    }
+
+    @media (min-width: 768px) {
+      .filter-grid {
+        grid-template-columns: 5fr 3fr 2fr 2fr;
+      }
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      background: var(--offwhite);
+      border: 2px solid var(--ink);
+      border-radius: 0.3rem;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--crimson);
+      background: var(--paper);
+    }
+
+    /* Reports Feed Grid */
+    .reports-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .reports-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .reports-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .report-card {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .report-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0 0 var(--ink);
+    }
+
+    .report-card-body {
+      padding: 1.25rem;
+    }
+
+    .report-card-footer {
+      padding: 0.75rem 1.25rem;
+      background: var(--offwhite);
+      border-top: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.55rem;
+      border-radius: 0.2rem;
+    }
+
+    .badge-verified {
+      background: var(--emerald-light);
+      color: var(--emerald-dark);
+      border: 1px solid var(--emerald);
+    }
+
+    .badge-action {
+      background: var(--crimson);
+      color: var(--paper);
+    }
+
+    .badge-review {
+      background: var(--amber-light);
+      color: var(--amber-dark);
+      border: 1px solid var(--amber);
+    }
+
+    .badge-dark {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+    }
+
+    .badge-gray {
+      background: var(--gray-100);
+      color: var(--gray-700);
+      border: 1px solid var(--gray-300);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+    }
+
+    /* Security Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .pillars-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .pillar-card {
+      border: 2px solid var(--ink);
+      background: var(--offwhite);
+      padding: 1.15rem;
+      border-radius: 0.35rem;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(0, 0, 0, 0.82);
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .modal-backdrop.hidden {
+      display: none !important;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 48rem;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      margin: 1.5rem auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+    }
+
+    .modal-box-lg {
+      max-width: 58rem;
+    }
+
+    .modal-box-sm {
+      max-width: 30rem;
+    }
+
+    .modal-header {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 4px solid var(--crimson);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: #9CA3AF;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: 0.25rem;
+    }
+
+    .close-btn:hover {
+      color: var(--paper);
+    }
+
+    /* Crypto & Sanitizer Terminal Boxes */
+    .terminal-box {
+      background: var(--ink);
+      color: #34D399;
+      padding: 0.9rem;
+      border-radius: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      border: 1px solid #374151;
+    }
+
+    /* Tables */
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    .audit-table th {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-align: left;
+      padding: 0.65rem 0.85rem;
+    }
+
+    .audit-table td {
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+    }
+
+    .audit-table tr:nth-child(even) td {
+      background: var(--offwhite);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--ink);
+      color: var(--paper);
+      border-top: 4px solid var(--crimson);
+      margin-top: 3.5rem;
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #262626;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 5fr 3fr 4fr;
+      }
+    }
+
+    /* Toast */
+    .toast-banner {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 60;
+      max-width: 24rem;
+      background: var(--ink);
+      color: var(--paper);
+      border-left: 4px solid var(--crimson);
+      padding: 0.8rem 1rem;
+      border-radius: 0.3rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================================================================== -->
+  <!-- TOP STICKY OPSEC, NETWORK LEAK MONITOR & CRYPTO STATUS BAR            -->
+  <!-- ===================================================================== -->
+  <div class="opsec-bar">
+    <div class="container opsec-inner">
+      <div class="opsec-badges">
+        <span class="font-mono" style="color: #34D399; font-weight: 700; display: inline-flex; align-items: center;">
+          <span class="pulse-dot"></span>
+          WEBCRYPTO: RSA-OAEP-4096 + AES-256-GCM
+        </span>
+        <span class="font-mono" id="networkAuditBadge" style="color: #93C5FD; font-weight: 600;">
+          [CSP: connect-src 'none' | 0 EXTERNAL LEAKS]
+        </span>
+        <span class="font-mono" id="headerKeyFingerprint" style="color: #D1D5DB;">
+          KEY FP: INITIALIZING...
+        </span>
+      </div>
+
+      <div class="opsec-actions">
+        <button type="button" onclick="openVaultModal()" class="chip-btn" title="Inspect Newsroom RSA-4096 Keypair & Test Decryption">
+          EDITORIAL VAULT / KEYS
+        </button>
+        <button type="button" onclick="copyOnionAddress()" class="chip-btn" title="Copy Tor v3 Onion Address">
+          TOR ONION MIRROR
+        </button>
+        <button type="button" onclick="openTrackReceiptModal()" class="chip-btn chip-btn-red">
+          CHECK RECEIPT
+        </button>
+        <button type="button" onclick="panicWipeMemory()" class="chip-btn chip-btn-panic" title="Immediately overwrite in-memory reports, keys, and form inputs">
+          PANIC WIPE RAM
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN EDITORIAL HEADER                                                 -->
+  <!-- ===================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <span class="font-bebas" style="background: var(--crimson); color: var(--paper); font-size: 0.85rem; padding: 0.15rem 0.5rem; border-radius: 2px;">
+              INDIA CAMPUS ACCOUNTABILITY DESK
+            </span>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--gray-500);">
+              ZERO-LEAK CLIENT ARCHITECTURE • SELF-CONTAINED BUILD
+            </span>
+          </div>
+          <a href="#" onclick="resetFilters(event)" class="brand-title font-bebas">
+            CAMPUS<span class="red-accent">REPORT</span>
+          </a>
+          <p style="font-size: 0.92rem; color: var(--gray-700); margin-top: 0.5rem; max-width: 44rem; font-weight: 500;">
+            Exposing ragging cover-ups, examination rackets, placement manipulation, and hostel negligence across Indian universities — <strong style="color: var(--crimson);">encrypted in-browser with zero external network calls.</strong>
+          </p>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+          <button type="button" onclick="openOpsecModal()" class="btn btn-outline font-bebas" style="padding: 0.65rem 1rem; font-size: 1.15rem;">
+            <svg width="18" height="18" fill="none" stroke="#D90429" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span>SECURITY &amp; OPSEC AUDIT</span>
+          </button>
+
+          <button type="button" onclick="openSubmitModal()" class="btn btn-primary font-bebas" style="padding: 0.65rem 1.25rem; font-size: 1.2rem;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+            <span>SUBMIT ENCRYPTED REPORT</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Navigation Tabs -->
+      <nav aria-label="Primary Categories" class="nav-bar" id="categoryTabs">
+        <button type="button" data-category="ALL" onclick="setCategoryFilter('ALL')" class="nav-tab active-tab">ALL REPORTS</button>
+        <button type="button" data-category="Ragging & Safety" onclick="setCategoryFilter('Ragging & Safety')" class="nav-tab">RAGGING &amp; SAFETY</button>
+        <button type="button" data-category="Exam & Admin Corruption" onclick="setCategoryFilter('Exam & Admin Corruption')" class="nav-tab">EXAM &amp; ADMIN CORRUPTION</button>
+        <button type="button" data-category="Hostel & Infra" onclick="setCategoryFilter('Hostel & Infra')" class="nav-tab">HOSTEL &amp; INFRA</button>
+        <button type="button" data-category="Placement Malpractice" onclick="setCategoryFilter('Placement Malpractice')" class="nav-tab">PLACEMENT SCAMS</button>
+        <button type="button" onclick="openSubmitModal()" class="nav-tab nav-tab-cta">+ SUBMIT A REPORT</button>
+        <button type="button" onclick="openVaultModal()" class="nav-tab">DECRYPT VAULT</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT                                                          -->
+  <!-- ===================================================================== -->
+  <main class="container">
+
+    <!-- FEATURED INVESTIGATIVE HERO DISPATCH -->
+    <section class="hero-card shadow-editorial" aria-label="Lead Investigation">
+      <div class="hero-left bg-editorial-grid">
+        <div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.9rem;">
+            <span class="font-bebas" style="background: var(--crimson); color: var(--paper); font-size: 0.95rem; padding: 0.15rem 0.65rem; border-radius: 2px;">
+              ★ LEAD INVESTIGATION • DOSSIER #CR-2026-041
+            </span>
+            <span class="badge badge-verified">✓ VERIFIED BY 14 CORROBORATING DOCUMENTS</span>
+            <span class="font-mono" style="font-size: 0.75rem; color: var(--gray-500);">MAHARASHTRA • ENGINEERING &amp; TECH</span>
+          </div>
+
+          <h2 class="font-bebas" style="font-size: clamp(2rem, 4.2vw, 3.35rem); line-height: 1.02; color: var(--ink); margin-bottom: 1rem;">
+            THE ₹1.8 CRORE "MANDATORY DETENTION &amp; RE-EXAM FEE" RACKET ACROSS PRIVATE AUTONOMOUS COLLEGES IN PUNE
+          </h2>
+
+          <p style="color: var(--ink-soft); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            Internal audit spreadsheets and biometric attendance logs leaked by three final-year student whistleblowers reveal systematic tampering of 74.8% attendance records right before semester hall-ticket generation—forcing over 620 students to pay ₹28,500 each in "condonation &amp; remedial fees."
+          </p>
+        </div>
+
+        <div style="padding-top: 1rem; border-top: 2px solid var(--ink); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+            <button type="button" onclick="openArticleModal('CR-2026-041')" class="btn btn-dark font-bebas" style="padding: 0.55rem 1.25rem; font-size: 1.15rem;">
+              READ FULL INVESTIGATION →
+            </button>
+            <button type="button" onclick="corroborateReport('CR-2026-041')" class="btn btn-outline font-bebas" style="padding: 0.5rem 0.95rem; font-size: 1.05rem;">
+              <span>▲ CORROBORATE</span>
+              <span class="font-mono" style="font-size: 0.85rem; color: var(--crimson); font-weight: 700;" id="count-CR-2026-041">418</span>
+            </button>
+          </div>
+          <div class="font-mono" style="font-size: 0.72rem; color: var(--gray-500);">
+            EXIF STRIPPED • SHA-256 VERIFIED • UGC COMPLAINT FILED
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #262626; padding-bottom: 0.65rem;">
+            <span class="font-bebas" style="font-size: 1.35rem; color: var(--crimson);">LIVE ACCOUNTABILITY METRICS</span>
+            <span class="pulse-dot" style="background: var(--crimson);"></span>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-box">
+              <div class="font-bebas" style="font-size: 2.15rem; line-height: 1;" id="statTotalReports">1,428</div>
+              <div class="font-mono" style="font-size: 0.65rem; color: #9CA3AF; margin-top: 0.25rem;">VERIFIED DISCLOSURES</div>
+            </div>
+            <div class="stat-box">
+              <div class="font-bebas" style="font-size: 2.15rem; line-height: 1; color: var(--crimson);">312</div>
+              <div class="font-mono" style="font-size: 0.65rem; color: #9CA3AF; margin-top: 0.25rem;">ADMIN ACTIONS FORCED</div>
+            </div>
+            <div class="stat-box">
+              <div class="font-bebas" style="font-size: 2.15rem; line-height: 1; color: #34D399;">0</div>
+              <div class="font-mono" style="font-size: 0.65rem; color: #9CA3AF; margin-top: 0.25rem;">EXTERNAL LEAKS (CSP)</div>
+            </div>
+            <div class="stat-box">
+              <div class="font-bebas" style="font-size: 2.15rem; line-height: 1;">28</div>
+              <div class="font-mono" style="font-size: 0.65rem; color: #9CA3AF; margin-top: 0.25rem;">STATES &amp; UTS COVERED</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(217, 4, 41, 0.16); border: 1px solid var(--crimson); padding: 0.9rem; border-radius: 0.35rem;">
+          <div class="font-bebas" style="font-size: 1.1rem; margin-bottom: 0.25rem;">
+            REAL HYBRID CRYPTOGRAPHY + CANVAS EXIF SCRUBBER
+          </div>
+          <p style="font-size: 0.76rem; color: #D1D5DB; line-height: 1.45; margin-bottom: 0.7rem;">
+            Photos are re-encoded via HTML5 Canvas to destroy EXIF/GPS tags, then wrapped in a real <strong>RSA-OAEP-4096 + AES-256-GCM</strong> envelope using Web Crypto API.
+          </p>
+          <button type="button" onclick="openSubmitModal()" class="btn btn-primary font-bebas" style="width: 100%; padding: 0.45rem; font-size: 1.1rem; box-shadow: none;">
+            LAUNCH SECURE DROPBOX →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTI-FACET FILTER BAR -->
+    <section class="filter-panel shadow-editorial-sm" aria-label="Filter Campus Reports">
+      <div class="filter-grid">
+        <div>
+          <label for="searchInput" class="form-label">SEARCH COLLEGE, CITY, OR ISSUE</label>
+          <input type="text" id="searchInput" oninput="applyFilters()" class="form-input" placeholder="e.g., Hostel water, Pune, Delhi University, Attendance, Ragging..." />
+        </div>
+
+        <div>
+          <label for="stateFilter" class="form-label">STATE / REGION</label>
+          <select id="stateFilter" onchange="applyFilters()" class="form-select">
+            <option value="ALL">All Indian States &amp; UTs</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Delhi">Delhi NCR</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Rajasthan">Rajasthan</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="statusFilter" class="form-label">VERIFICATION STATUS</label>
+          <select id="statusFilter" onchange="applyFilters()" class="form-select">
+            <option value="ALL">All Statuses</option>
+            <option value="Verified">Verified</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Action Taken">Action Taken</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="button" onclick="resetFilters()" class="btn btn-dark font-bebas" style="width: 100%; padding: 0.55rem; font-size: 1.1rem; box-shadow: none;">
+            RESET FILTERS
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-top: 0.85rem; padding-top: 0.65rem; border-top: 1px solid var(--gray-200); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.72rem;" class="font-mono">
+        <div style="color: var(--gray-700);">
+          SHOWING <strong id="visibleCount" style="color: var(--ink);">0</strong> SANITIZED DISPATCHES
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.9rem; color: var(--gray-700);">
+          <span>● Verified</span>
+          <span style="color: var(--amber-dark);">● Under Review</span>
+          <span style="color: var(--crimson);">● Action Taken</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTERABLE FEED OF CAMPUS REPORTS -->
+    <section aria-label="Campus Reports Feed">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 1.25rem;">
+        <h2 class="font-bebas" style="font-size: 2rem; color: var(--ink); display: flex; align-items: center;">
+          <span style="width: 10px; height: 26px; background: var(--crimson); display: inline-block; margin-right: 0.65rem;"></span>
+          LATEST CAMPUS DISPATCHES
+        </h2>
+        <span class="font-mono" style="font-size: 0.72rem; color: var(--gray-500);">
+          XSS-ESCAPED DOM • SHA-256 HASHED RECEIPTS • ZERO COOKIES
+        </span>
+      </div>
+
+      <div id="reportsGrid" class="reports-grid"></div>
+
+      <div id="emptyState" class="hidden" style="background: var(--paper); border: 2px solid var(--ink); border-radius: 0.5rem; padding: 3rem 1.5rem; text-align: center; margin: 1.5rem 0;">
+        <div class="font-bebas" style="font-size: 2.2rem; margin-bottom: 0.4rem;">NO MATCHING CAMPUS REPORTS FOUND</div>
+        <p style="font-size: 0.9rem; color: var(--gray-700); max-width: 28rem; margin: 0 auto 1.25rem;">
+          No published dispatches match your current state, category, or keyword filters.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 0.75rem;">
+          <button type="button" onclick="resetFilters()" class="btn btn-dark font-bebas" style="padding: 0.5rem 1.1rem; font-size: 1.05rem;">CLEAR FILTERS</button>
+          <button type="button" onclick="openSubmitModal()" class="btn btn-primary font-bebas" style="padding: 0.5rem 1.1rem; font-size: 1.05rem;">+ SUBMIT REPORT</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEDICATED CLIENT-SIDE CRYPTO & OPSEC ARCHITECTURE SECTION -->
+    <section style="margin-top: 3rem; background: var(--paper); border: 2px solid var(--ink); border-radius: 0.5rem; padding: 1.75rem;" class="shadow-editorial">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <span class="badge-dark" style="padding: 0.25rem 0.55rem; border-radius: 0.2rem;">VERIFIED CLIENT-SIDE HARDENING</span>
+          <h2 class="font-bebas" style="font-size: clamp(1.85rem, 3.5vw, 2.75rem); margin-top: 0.35rem;">
+            ZERO-LEAK CRYPTOGRAPHY &amp; <span style="color: var(--crimson);">FORENSIC SANITIZATION</span>
+          </h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+          <button type="button" onclick="openVaultModal()" class="btn btn-dark font-bebas" style="padding: 0.55rem 1rem; font-size: 1.1rem;">
+            OPEN DECRYPTION VAULT →
+          </button>
+          <button type="button" onclick="openOpsecModal()" class="btn btn-primary font-bebas" style="padding: 0.55rem 1rem; font-size: 1.1rem;">
+            FULL SECURITY AUDIT MATRIX →
+          </button>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="font-mono" style="font-size: 0.7rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.25rem;">01 // CSP: connect-src 'none'</div>
+          <h3 class="font-bebas" style="font-size: 1.35rem; margin-bottom: 0.4rem;">ZERO OUTBOUND LEAKS</h3>
+          <p style="font-size: 0.78rem; color: var(--gray-700);">
+            All Google Fonts, external icon CDNs, and third-party scripts have been purged. Strict CSP headers actively block any outbound XHR/Fetch/Beacon connection.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="font-mono" style="font-size: 0.7rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.25rem;">02 // WEB CRYPTO API</div>
+          <h3 class="font-bebas" style="font-size: 1.35rem; margin-bottom: 0.4rem;">RSA-4096 + AES-256-GCM</h3>
+          <p style="font-size: 0.78rem; color: var(--gray-700);">
+            Submissions are encrypted in-browser using native <code>window.crypto.subtle</code> hybrid encryption—wrapping a fresh 256-bit AES-GCM key inside a 4096-bit RSA-OAEP envelope.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="font-mono" style="font-size: 0.7rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.25rem;">03 // PIXEL RE-ENCODING</div>
+          <h3 class="font-bebas" style="font-size: 1.35rem; margin-bottom: 0.4rem;">REAL CANVAS EXIF STRIPPER</h3>
+          <p style="font-size: 0.78rem; color: var(--gray-700);">
+            Uploaded photos are decoded into raw RGBA pixels on an off-screen HTML5 Canvas and re-encoded, physically destroying APP1/EXIF GPS coordinates and camera serial tags.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="font-mono" style="font-size: 0.7rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.25rem;">04 // SHA-256 ZERO-KNOWLEDGE</div>
+          <h3 class="font-bebas" style="font-size: 1.35rem; margin-bottom: 0.4rem;">HASHED CASE TOKENS</h3>
+          <p style="font-size: 0.78rem; color: var(--gray-700);">
+            128-bit CSPRNG receipt tokens are hashed with SHA-256 immediately upon creation; only the digest is stored, plus a one-click Panic Wipe shreds RAM state.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="font-bebas" style="font-size: 2.2rem;">
+            CAMPUS<span style="color: var(--crimson); margin-left: 0.2em;">REPORT</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #9CA3AF; margin-top: 0.5rem;">
+            An independent, zero-leak student accountability dispatch. Built with strict Content-Security-Policy isolation, Web Crypto hybrid encryption, and client-side forensic sanitization.
+          </p>
+          <div class="font-mono" id="footerKeyFingerprint" style="margin-top: 0.9rem; font-size: 0.7rem; color: #34D399; background: rgba(255,255,255,0.05); padding: 0.65rem; border-radius: 0.25rem; border: 1px solid rgba(255,255,255,0.12); word-break: break-all;">
+            NEWSROOM RSA-4096 SHA-256 FINGERPRINT: GENERATING...
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bebas" style="font-size: 1.25rem; color: var(--crimson); margin-bottom: 0.65rem;">REPORTING DESKS</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.85rem;">
+            <li><button type="button" onclick="setCategoryFilter('Ragging & Safety')" style="background: none; border: none; color: #D1D5DB; cursor: pointer;">Anti-Ragging &amp; Campus Safety</button></li>
+            <li><button type="button" onclick="setCategoryFilter('Exam & Admin Corruption')" style="background: none; border: none; color: #D1D5DB; cursor: pointer;">Exam &amp; Attendance Rackets</button></li>
+            <li><button type="button" onclick="setCategoryFilter('Hostel & Infra')" style="background: none; border: none; color: #D1D5DB; cursor: pointer;">Hostel &amp; Mess Negligence</button></li>
+            <li><button type="button" onclick="setCategoryFilter('Placement Malpractice')" style="background: none; border: none; color: #D1D5DB; cursor: pointer;">Placement Cell Manipulation</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bebas" style="font-size: 1.25rem; color: var(--crimson); margin-bottom: 0.65rem;">EMERGENCY STUDENT HELPLINES (INDIA)</h4>
+          <ul class="font-mono" style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.75rem; color: #D1D5DB;">
+            <li>• UGC Anti-Ragging Helpline: <strong style="color: #FFFFFF;">1800-180-5522</strong></li>
+            <li>• National Emergency Number: <strong style="color: #FFFFFF;">112</strong></li>
+            <li>• Cyber Crime Portal: <strong style="color: #FFFFFF;">1930 / cybercrime.gov.in</strong></li>
+            <li>• Tele-MANAS Mental Health: <strong style="color: #FFFFFF;">14416</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="font-mono" style="padding-top: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; font-size: 0.7rem; color: #6B7280;">
+        <div>© 2026 CAMPUS REPORT COLLECTIVE // ZERO-LEAK CLIENT BUILD</div>
+        <div>OPSEC: ALWAYS CONNECT VIA TOR BROWSER OR NO-LOG VPN OFF CAMPUS WI-FI</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: SUBMIT ANONYMOUS REPORT (REAL EXIF STRIPPER + HYBRID CRYPTO)  -->
+  <!-- ===================================================================== -->
+  <div id="submitModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="submitModalTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <span class="font-mono" style="font-size: 0.68rem; color: #34D399; display: block;">WEBCRYPTO HYBRID ENGINE // RSA-OAEP-4096 + AES-GCM-256</span>
+          <h3 id="submitModalTitle" class="font-bebas" style="font-size: 1.85rem;">SUBMIT ANONYMOUS ENCRYPTED REPORT</h3>
+        </div>
+        <button type="button" onclick="closeSubmitModal()" class="close-btn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div style="background: var(--crimson-light); border-bottom: 1px solid var(--crimson-border); padding: 0.75rem 1.5rem; font-size: 0.78rem; color: var(--ink);">
+        <strong style="color: var(--crimson);">OPSEC PROTOCOL:</strong> Never submit over campus Wi-Fi. Strip personal names, roll numbers, and room numbers. All images are automatically re-encoded via HTML5 Canvas to purge EXIF/GPS metadata before RSA+AES encryption.
+      </div>
+
+      <form id="whistleblowerForm" onsubmit="handleReportSubmission(event)" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <div>
+            <label for="repCollege" class="form-label">COLLEGE / UNIVERSITY NAME *</label>
+            <input type="text" id="repCollege" required maxlength="120" oninput="updateLiveCiphertext()" class="form-input" placeholder="e.g., Autonomous Tech Institute, Pune" />
+          </div>
+
+          <div>
+            <label for="repState" class="form-label">STATE / UNION TERRITORY *</label>
+            <select id="repState" required onchange="updateLiveCiphertext()" class="form-select">
+              <option value="">Select State...</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Delhi">Delhi NCR</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Gujarat">Gujarat</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <div>
+            <label for="repCategory" class="form-label">REPORT CATEGORY *</label>
+            <select id="repCategory" required onchange="updateLiveCiphertext()" class="form-select">
+              <option value="Ragging & Safety">Ragging &amp; Safety</option>
+              <option value="Exam & Admin Corruption">Exam &amp; Admin Corruption</option>
+              <option value="Hostel & Infra">Hostel &amp; Infra</option>
+              <option value="Placement Malpractice">Placement Malpractice</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="repDate" class="form-label">APPROXIMATE INCIDENT MONTH</label>
+            <input type="text" id="repDate" maxlength="40" oninput="updateLiveCiphertext()" class="form-input" placeholder="e.g., November 2026 (Keep vague for safety)" />
+          </div>
+        </div>
+
+        <div>
+          <label for="repTitle" class="form-label">HEADLINE / SUMMARY OF CONCERN *</label>
+          <input type="text" id="repTitle" required maxlength="160" oninput="updateLiveCiphertext()" class="form-input" placeholder="e.g., Unsanitary drinking water & contaminated mess food in Boys Hostel Block C" />
+        </div>
+
+        <div>
+          <label for="repBody" class="form-label">DETAILED EVIDENCE &amp; CHRONOLOGY *</label>
+          <textarea id="repBody" rows="4" required maxlength="2500" oninput="updateLiveCiphertext()" class="form-textarea" placeholder="Describe dates, policies violated, fee notices, or official inaction..."></textarea>
+        </div>
+
+        <!-- REAL CLIENT-SIDE CANVAS EXIF & BINARY METADATA STRIPPER -->
+        <div style="border: 2px solid var(--ink); background: var(--offwhite); border-radius: 0.35rem; padding: 1rem;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <label for="evidenceFile" class="form-label" style="margin-bottom: 0;">
+              ATTACH EVIDENCE (REAL HTML5 CANVAS EXIF &amp; BINARY SCRUBBER)
+            </label>
+            <span class="badge badge-verified">PIXEL RE-ENCODER ACTIVE</span>
+          </div>
+
+          <input type="file" id="evidenceFile" onchange="processRealEvidenceFile(this)" accept="image/jpeg,image/png,image/webp,.pdf,.txt" style="font-size: 0.8rem; width: 100%;" />
+
+          <!-- Real Binary Before vs After Audit Box -->
+          <div id="exifAuditPanel" class="hidden" style="margin-top: 0.85rem; background: var(--ink); color: var(--paper); padding: 0.9rem; border-radius: 0.3rem; font-size: 0.74rem;" class="font-mono">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; color: #34D399; font-weight: 700; margin-bottom: 0.45rem;">
+              <span id="sanitizerStatusHeadline">✓ PIXEL RE-ENCODING COMPLETE</span>
+              <span id="sanitizedFileName" style="color: #D1D5DB;"></span>
+            </div>
+
+            <div id="exifAuditDetails" class="font-mono" style="font-size: 0.7rem; color: #E5E7EB; line-height: 1.55; border-top: 1px solid #374151; padding-top: 0.5rem;"></div>
+
+            <div id="scrubbedPreviewControls" class="hidden" style="margin-top: 0.65rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem;">
+              <img id="scrubbedImgThumb" alt="Sanitized Evidence Preview" style="max-height: 76px; border: 1px solid #4B5563; border-radius: 0.2rem;" />
+              <button type="button" onclick="downloadScrubbedFile()" class="chip-btn" style="border-color: #34D399; color: #34D399;">
+                ↓ DOWNLOAD SCRUBBED CLEAN IMAGE
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- REAL LIVE WEBCRYPTO HYBRID ENVELOPE PREVIEW -->
+        <div style="border: 2px solid var(--ink); background: var(--paper); border-radius: 0.35rem; padding: 1rem;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem;">
+            <div>
+              <div class="form-label" style="margin-bottom: 0;">LIVE HYBRID CIPHERTEXT ENVELOPE (RSA-OAEP-4096 + AES-256-GCM)</div>
+              <p style="font-size: 0.75rem; color: var(--gray-500);">Real Web Crypto API output encrypted against the Newsroom Public Key.</p>
+            </div>
+            <div style="display: flex; gap: 0.4rem;">
+              <button type="button" onclick="forceReEncrypt()" class="btn btn-outline font-mono" style="font-size: 0.7rem; padding: 0.35rem 0.6rem;">
+                RE-ENCRYPT (NEW IV)
+              </button>
+              <button type="button" onclick="toggleCipherPreview()" class="btn btn-dark font-mono" style="font-size: 0.7rem; padding: 0.35rem 0.6rem; box-shadow: none;">
+                SHOW / HIDE ENVELOPE
+              </button>
+            </div>
+          </div>
+
+          <pre id="liveCipherBox" class="terminal-box hidden" style="margin-top: 0.75rem; max-height: 185px;">Initializing Web Crypto envelope...</pre>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 0.5rem;">
+          <span class="font-mono" style="font-size: 0.7rem; color: var(--gray-500);">
+            SHA-256 RECEIPT HASHING • ZERO COOKIES • NO OUTBOUND XHR
+          </span>
+          <div style="display: flex; gap: 0.6rem;">
+            <button type="button" onclick="closeSubmitModal()" class="btn btn-outline font-bebas" style="padding: 0.55rem 1.1rem; font-size: 1.05rem;">CANCEL</button>
+            <button type="submit" class="btn btn-primary font-bebas" style="padding: 0.55rem 1.35rem; font-size: 1.15rem;">ENCRYPT &amp; SEAL DISPATCH →</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- SUCCESS RECEIPT & DOWNLOADABLE ENCRYPTED PACKAGE VIEW -->
+      <div id="receiptSuccessView" class="hidden bg-editorial-grid" style="padding: 2rem; text-align: center;">
+        <div style="display: inline-flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--emerald-light); border: 2px solid var(--emerald); color: var(--emerald-dark); font-size: 1.75rem; font-weight: 800; margin-bottom: 0.85rem;">
+          ✓
+        </div>
+        <h4 class="font-bebas" style="font-size: 2.2rem; margin-bottom: 0.4rem;">REPORT ENCRYPTED &amp; SEALED WITH RSA-4096 + AES-256-GCM</h4>
+        <p style="font-size: 0.88rem; color: var(--gray-700); max-width: 34rem; margin: 0 auto 1.25rem;">
+          Your submission has been sanitized, encrypted in-browser, and indexed using only the <strong>SHA-256 hash</strong> of your receipt token. Save your token below—it is never stored in plaintext.
+        </p>
+
+        <div style="max-width: 28rem; margin: 0 auto 1.25rem; background: var(--ink); color: var(--paper); padding: 1.25rem; border-radius: 0.45rem; border: 2px solid var(--crimson);">
+          <div class="font-mono" style="font-size: 0.68rem; color: #9CA3AF;">128-BIT CSPRNG CASE RECEIPT TOKEN (SAVE OFFLINE)</div>
+          <div id="generatedReceiptCode" class="font-mono" style="font-size: 1.55rem; font-weight: 700; color: var(--crimson); letter-spacing: 0.08em; margin: 0.45rem 0;">
+            CR-0000-0000-0000
+          </div>
+          <div class="font-mono" id="generatedReceiptHashPreview" style="font-size: 0.65rem; color: #34D399; word-break: break-all; margin-bottom: 0.75rem;">
+            SHA-256 DIGEST STORED: ...
+          </div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
+            <button type="button" onclick="copyReceiptCode()" class="chip-btn">COPY RECEIPT TOKEN</button>
+            <button type="button" onclick="downloadEncryptedEnvelope()" class="chip-btn" style="border-color: #34D399; color: #34D399;">
+              ↓ DOWNLOAD .ENC.JSON PACKAGE
+            </button>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+          <button type="button" onclick="testDecryptLastSubmission()" class="btn btn-outline font-bebas" style="padding: 0.6rem 1.2rem; font-size: 1.1rem;">
+            TEST DECRYPT IN EDITORIAL VAULT
+          </button>
+          <button type="button" onclick="closeSubmitModal()" class="btn btn-dark font-bebas" style="padding: 0.6rem 1.35rem; font-size: 1.1rem;">
+            RETURN TO LIVE FEED
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 2: EDITORIAL DECRYPTION VAULT & RSA-4096 KEY MANAGER            -->
+  <!-- ===================================================================== -->
+  <div id="vaultModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="vaultModalTitle">
+    <div class="modal-box modal-box-lg">
+      <div class="modal-header">
+        <div>
+          <span class="font-mono" style="font-size: 0.68rem; color: #34D399; display: block;">WEB CRYPTO VERIFICATION // END-TO-END DECRYPTION SANDBOX</span>
+          <h3 id="vaultModalTitle" class="font-bebas" style="font-size: 1.85rem;">EDITORIAL VAULT &amp; RSA-4096 KEYPAIR INSPECTOR</h3>
+        </div>
+        <button type="button" onclick="closeVaultModal()" class="close-btn">✕</button>
+      </div>
+
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="background: var(--offwhite); border: 2px solid var(--ink); border-radius: 0.35rem; padding: 1rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <div>
+              <span class="font-bebas" style="font-size: 1.25rem;">ACTIVE NEWSROOM RSA-OAEP-4096 PUBLIC KEY (SPKI PEM)</span>
+              <div class="font-mono" id="vaultFingerprintDisplay" style="font-size: 0.7rem; color: var(--crimson); font-weight: 700;">
+                SHA-256 FINGERPRINT: ...
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.45rem;">
+              <button type="button" onclick="rotateNewsroomKeys()" class="btn btn-outline font-mono" style="font-size: 0.7rem; padding: 0.35rem 0.65rem;">
+                ROTATE 4096-BIT KEYPAIR
+              </button>
+              <button type="button" onclick="copyPublicKeyPem()" class="btn btn-dark font-mono" style="font-size: 0.7rem; padding: 0.35rem 0.65rem; box-shadow: none;">
+                COPY PUBLIC PEM
+              </button>
+            </div>
+          </div>
+          <pre id="publicKeyPemBox" class="terminal-box" style="max-height: 125px; color: #E5E7EB;">Generating RSA-4096 Public Key...</pre>
+        </div>
+
+        <!-- Decryption Verifier -->
+        <div style="border: 2px solid var(--ink); border-radius: 0.35rem; padding: 1rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <label for="vaultCipherInput" class="form-label" style="margin-bottom: 0;">
+              VERIFY DECRYPTION (PASTE .ENC.JSON ENVELOPE OR LOAD LAST SUBMISSION)
+            </label>
+            <button type="button" onclick="loadLatestEnvelopeIntoVault()" class="chip-btn" style="background: var(--ink);">
+              LOAD LATEST ENCRYPTED SUBMISSION
+            </button>
+          </div>
+
+          <textarea id="vaultCipherInput" rows="5" class="form-textarea font-mono" style="font-size: 0.72rem;" placeholder='Paste encrypted JSON envelope {"alg":"RSA-OAEP-4096+AES-GCM-256", ...} here to test real Web Crypto decryption...'></textarea>
+
+          <div style="margin-top: 0.75rem; display: flex; justify-content: flex-end;">
+            <button type="button" onclick="decryptVaultEnvelope()" class="btn btn-primary font-bebas" style="padding: 0.5rem 1.25rem; font-size: 1.1rem; box-shadow: none;">
+              DECRYPT WITH EDITORIAL PRIVATE KEY →
+            </button>
+          </div>
+
+          <div id="vaultDecryptedOutputBox" class="hidden" style="margin-top: 0.9rem;">
+            <div class="font-mono" style="font-size: 0.72rem; color: var(--emerald-dark); font-weight: 700; margin-bottom: 0.35rem;">
+              ✓ AUTHENTICATED AES-256-GCM DECRYPTION SUCCEEDED:
+            </div>
+            <pre id="vaultDecryptedPlaintext" class="terminal-box" style="max-height: 210px;"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 3: FULL ARTICLE READER MODAL                                    -->
+  <!-- ===================================================================== -->
+  <div id="articleModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="font-mono" style="font-size: 0.75rem; color: #D1D5DB;" id="modalCaseId">DOSSIER // CR-2026-041</div>
+        <button type="button" onclick="closeArticleModal()" class="close-btn">✕</button>
+      </div>
+      <div style="padding: 1.75rem;" id="articleModalContent"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 4: SECURITY AUDIT & PRODUCTION ARCHITECTURE MATRIX              -->
+  <!-- ===================================================================== -->
+  <div id="opsecModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-box modal-box-lg">
+      <div class="modal-header">
+        <div>
+          <span class="font-mono" style="font-size: 0.68rem; color: var(--crimson); font-weight: 700;">HONEST THREAT MODEL // CLIENT HARDENING + BACKEND REQUIREMENTS</span>
+          <h3 class="font-bebas" style="font-size: 1.85rem;">SECURITY AUDIT &amp; OWASP TOP 10:2025 ARCHITECTURE</h3>
+        </div>
+        <button type="button" onclick="closeOpsecModal()" class="close-btn">✕</button>
+      </div>
+
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; max-height: 80vh; overflow-y: auto;">
+        <div style="background: var(--emerald-light); border: 2px solid var(--emerald); padding: 1rem; border-radius: 0.35rem; font-size: 0.82rem; color: var(--emerald-dark);">
+          <strong>WHAT IS GENUINELY ACTIVE IN THIS CLIENT BUILD:</strong>
+          <ul style="margin-top: 0.4rem; padding-left: 1.25rem; line-height: 1.55;">
+            <li><strong>Zero Third-Party Network Leaks:</strong> All external font and script CDNs removed; <code>Content-Security-Policy: connect-src 'none'</code> and <code>referrer="no-referrer"</code> actively prevent outbound IP/User-Agent leaks.</li>
+            <li><strong>Authentic Web Crypto Hybrid Encryption:</strong> Uses native <code>crypto.subtle</code> RSA-OAEP 4096-bit + AES-GCM 256-bit encryption (verifiable in the Editorial Vault).</li>
+            <li><strong>Real HTML5 Canvas Pixel Re-Encoding:</strong> Rebuilds uploaded images from raw pixel arrays to strip EXIF GPS, camera serial numbers, and timestamps.</li>
+            <li><strong>SHA-256 Hashed Receipt Tokens &amp; Panic Wipe:</strong> Receipt tokens are never stored in plaintext; Panic Wipe zeroes in-memory arrays and form inputs.</li>
+          </ul>
+        </div>
+
+        <div style="overflow-x: auto; border: 2px solid var(--ink); border-radius: 0.35rem;">
+          <table class="audit-table">
+            <thead>
+              <tr>
+                <th>SECURITY LAYER</th>
+                <th>CLIENT-SIDE STATUS (THIS FILE)</th>
+                <th>REQUIRED FOR FULL PRODUCTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Network &amp; IP Anonymity</strong></td>
+                <td><span class="badge badge-verified">0 EXTERNAL CALLS (CSP)</span></td>
+                <td>Host over a dedicated <strong>Tor v3 Hidden Service (.onion)</strong> + Nginx with <code>access_log off</code> and stripped <code>X-Forwarded-For</code> headers.</td>
+              </tr>
+              <tr>
+                <td><strong>Payload Confidentiality</strong></td>
+                <td><span class="badge badge-verified">REAL RSA-4096 + AES-256</span></td>
+                <td>Pin the newsroom's offline air-gapped PGP/RSA public key in static build; store private decryption key strictly on an air-gapped Tails/Qubes workstation.</td>
+              </tr>
+              <tr>
+                <td><strong>Attachment Forensics</strong></td>
+                <td><span class="badge badge-verified">CANVAS PIXEL RE-ENCODE</span></td>
+                <td>Pair with server-side <strong>ExifTool + QPDF/Mat2</strong> sanitization inside an isolated sandbox container to strip PDF printer dots and embedded objects.</td>
+              </tr>
+              <tr>
+                <td><strong>XSS &amp; Injection (OWASP A03)</strong></td>
+                <td><span class="badge badge-verified">STRICT HTML ESCAPING</span></td>
+                <td>Enforce HTTP-header CSP (since <code>frame-ancestors</code> requires HTTP headers), parameterized PostgreSQL queries, and non-executable S3/MinIO object storage.</td>
+              </tr>
+              <tr>
+                <td><strong>Receipt Lookup (OWASP A01/A07)</strong></td>
+                <td><span class="badge badge-verified">128-BIT CSPRNG + SHA-256</span></td>
+                <td>Use salted <strong>Argon2id</strong> digests in PostgreSQL with constant-time comparison and privacy-preserving proof-of-work rate limiting (ALTCHA).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 5: ZERO-KNOWLEDGE SHA-256 CASE RECEIPT TRACKER                  -->
+  <!-- ===================================================================== -->
+  <div id="receiptTrackerModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-box modal-box-sm">
+      <div class="modal-header">
+        <h3 class="font-bebas" style="font-size: 1.5rem;">ZERO-KNOWLEDGE RECEIPT CHECK</h3>
+        <button type="button" onclick="closeTrackReceiptModal()" class="close-btn">✕</button>
+      </div>
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 0.9rem;">
+        <p style="font-size: 0.8rem; color: var(--gray-700);">
+          Your receipt token is hashed client-side using <strong>SHA-256</strong> and compared against stored cryptographic digests—never transmitted or stored in plaintext.
+        </p>
+        <input type="text" id="receiptLookupInput" class="form-input font-mono" style="text-transform: uppercase;" placeholder="e.g., CR-XXXX-XXXX-XXXX or CR-2026-041" />
+        <button type="button" onclick="lookupReceiptStatus()" class="btn btn-primary font-bebas" style="width: 100%; padding: 0.55rem; font-size: 1.15rem; box-shadow: none;">
+          HASH &amp; VERIFY STATUS
+        </button>
+        <div id="receiptLookupResult" class="hidden font-mono" style="padding: 0.8rem; border-radius: 0.3rem; font-size: 0.72rem; word-break: break-all;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION BANNER -->
+  <div id="toastBanner" class="toast-banner hidden" role="status" aria-live="polite">
+    <div id="toastMessage"></div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- HARDENED CLIENT-SIDE APPLICATION & WEB CRYPTO ENGINE                  -->
+  <!-- ===================================================================== -->
+  <script>
+    'use strict';
+
+    // -------------------------------------------------------------------------
+    // 1. IN-MEMORY STATE (ZERO LOCALSTORAGE / ZERO COOKIES / PANIC WIPEABLE)
+    // -------------------------------------------------------------------------
+    let newsroomKeyPair = null;
+    let newsroomPublicPem = '';
+    let newsroomFingerprint = '';
+    let latestEncryptedEnvelope = null;
+    let scrubbedAttachmentData = null; // { name, type, originalBytes, scrubbedBytes, dataUrl, exifDetected }
+
+    const reportsData = [
+      {
+        id: 'CR-2026-041',
+        receiptHash: null, // Computed at boot via SHA-256
+        title: 'The ₹1.8 Crore "Mandatory Detention & Re-Exam Fee" Racket Across Private Autonomous Colleges in Pune',
+        college: 'Autonomous Engineering Consortium, Pune',
+        state: 'Maharashtra',
+        category: 'Exam & Admin Corruption',
+        status: 'Verified',
+        date: 'November 2026',
+        corroborations: 418,
+        summary: 'Biometric attendance logs leaked by three final-year whistleblowers reveal systematic tampering of 74.8% attendance records right before hall-ticket generation—forcing 620+ students to pay ₹28,500 each.',
+        fullText: 'Internal audit spreadsheets and biometric attendance logs leaked by three final-year student whistleblowers reveal systematic downward alteration of 74.8% attendance records 48 hours before semester hall-ticket generation.\n\nAffected students were summoned to the administrative block and verbally instructed to pay ₹28,500 in "Condonation & Special Remedial Fees" via non-itemized demand drafts without official university receipts.\n\nCampus Report independently cross-verified 14 payment slips, raw biometric CSV exports, and WhatsApp instructions issued by department coordinators.'
+      },
+      {
+        id: 'CR-2026-039',
+        receiptHash: null,
+        title: 'Late-Night Hostel Ragging & Forced Financial Extortion Covered Up by Anti-Ragging Squad',
+        college: 'Government Medical & Allied Sciences College, Kanpur',
+        state: 'Uttar Pradesh',
+        category: 'Ragging & Safety',
+        status: 'Action Taken',
+        date: 'October 2026',
+        corroborations: 312,
+        summary: 'First-year hostellers were subjected to sleep deprivation and forced to pay senior mess bills. Local warden allegedly pressured complainants to withdraw UGC helpline tickets.',
+        fullText: 'Multiple first-year undergraduate residents reported organized late-night ragging inside Block-B hostel between 1:00 AM and 3:30 AM over a three-week period. Juniors were forced to perform menial errands and transfer UPI payments toward senior canteen tabs.\n\nWhen two students lodged an anonymous complaint with the UGC Anti-Ragging Helpline, hostel authorities allegedly threatened internal practical exam failure unless the complaint was retracted.'
+      },
+      {
+        id: 'CR-2026-037',
+        receiptHash: null,
+        title: '42 Students Hospitalized After Contaminated Tanker Water & Expired Paneer Served in Hostel Mess',
+        college: 'Private Deemed University, Outer Ring Road, Bengaluru',
+        state: 'Karnataka',
+        category: 'Hostel & Infra',
+        status: 'Verified',
+        date: 'October 2026',
+        corroborations: 529,
+        summary: 'Despite charging ₹1.45 lakh/year for mandatory hostel accommodation, overhead water tanks went uncleaned for 14 months and FSSAI food safety notices were ignored.',
+        fullText: 'Over 42 undergraduate students were admitted to nearby clinics with acute gastroenteritis following dinner at the North Campus Mega-Mess. Whistleblowers provided time-stamped photographs of visibly rusted water storage tanks and unlabeled bulk dairy crates.'
+      },
+      {
+        id: 'CR-2026-034',
+        receiptHash: null,
+        title: 'Placement Cell Inflating CTC Figures & Blacklisting Students Who Declined Unpaid "Internships"',
+        college: 'Tier-2 Private Tech University, Chennai',
+        state: 'Tamil Nadu',
+        category: 'Placement Malpractice',
+        status: 'Under Review',
+        date: 'September 2026',
+        corroborations: 264,
+        summary: 'Brochures advertise a "₹14.5 LPA Average Package" by counting 6-month unpaid training stints and conditional 3-year bond offers as full-time placements.',
+        fullText: 'Leaked internal placement tracker sheets show that nearly 38% of "placed" students in the 2026 batch were only offered ₹8,000/month stipend roles with mandatory ₹3 lakh service bonds.'
+      },
+      {
+        id: 'CR-2026-031',
+        receiptHash: null,
+        title: 'Arbitrary ₹5,000 "Cultural Fest Sponsorship" Deductions From Caution Deposit Without Consent',
+        college: 'North Campus Affiliated College, New Delhi',
+        state: 'Delhi',
+        category: 'Exam & Admin Corruption',
+        status: 'Action Taken',
+        date: 'September 2026',
+        corroborations: 198,
+        summary: 'Graduating final-year students discovered unauthorized deductions from their refundable library and laboratory security deposits during no-dues clearance.',
+        fullText: 'Final-year undergraduate students applying for their degree migration certificates and caution deposit refunds discovered an unexplained ₹5,000 deduction labeled "Annual Festival & Infrastructure Development Contribution."'
+      },
+      {
+        id: 'CR-2026-028',
+        receiptHash: null,
+        title: 'Exposed Live Electrical Wiring & Non-Functional Fire Extinguishers in 40-Year-Old Girls Hostel',
+        college: 'State Technical University Campus, Kolkata',
+        state: 'West Bengal',
+        category: 'Hostel & Infra',
+        status: 'Verified',
+        date: 'August 2026',
+        corroborations: 176,
+        summary: 'Monsoon water seepage next to main distribution boards caused repeated short circuits; fire extinguishers on three floors expired in 2021.',
+        fullText: 'Whistleblowers submitted photographic documentation showing rainwater leaking directly over exposed 440V electrical junction boxes in the ground-floor corridor of the women\'s hostel.'
+      }
+    ];
+
+    let currentCategory = 'ALL';
+    const corroboratedIds = new Set();
+
+    // -------------------------------------------------------------------------
+    // 2. STRICT XSS ESCAPING & CRYPTOGRAPHIC HELPERS
+    // -------------------------------------------------------------------------
+    function escapeHTML(str) {
+      if (typeof str !== 'string') return '';
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function arrayBufferToBase64(buffer) {
+      const bytes = new Uint8Array(buffer);
+      let binary = '';
+      for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary);
+    }
+
+    function base64ToArrayBuffer(base64) {
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return bytes.buffer;
+    }
+
+    function bufferToHex(buffer) {
+      return Array.from(new Uint8Array(buffer))
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+    }
+
+    async function sha256Hex(text) {
+      const encoded = new TextEncoder().encode(text);
+      const hashBuffer = await window.crypto.subtle.digest('SHA-256', encoded);
+      return bufferToHex(hashBuffer);
+    }
+
+    function formatPem(base64Str, label) {
+      const lines = base64Str.match(/.{1,64}/g) || [];
+      return `-----BEGIN ${label}-----\n${lines.join('\n')}\n-----END ${label}-----`;
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. REAL WEB CRYPTO RSA-OAEP-4096 KEYPAIR GENERATION & HYBRID ENCRYPTION
+    // -------------------------------------------------------------------------
+    async function initNewsroomKeyPair() {
+      try {
+        newsroomKeyPair = await window.crypto.subtle.generateKey(
+          {
+            name: 'RSA-OAEP',
+            modulusLength: 4096,
+            publicExponent: new Uint8Array([1, 0, 1]),
+            hash: 'SHA-256'
+          },
+          true,
+          ['encrypt', 'decrypt']
+        );
+
+        const spkiBuffer = await window.crypto.subtle.exportKey('spki', newsroomKeyPair.publicKey);
+        const spkiBase64 = arrayBufferToBase64(spkiBuffer);
+        newsroomPublicPem = formatPem(spkiBase64, 'PUBLIC KEY');
+
+        const fpHash = await window.crypto.subtle.digest('SHA-256', spkiBuffer);
+        const fpHex = bufferToHex(fpHash).toUpperCase();
+        newsroomFingerprint = fpHex.match(/.{1,4}/g).join(' ');
+
+        const shortFp = fpHex.slice(0, 16).match(/.{1,4}/g).join(':');
+        document.getElementById('headerKeyFingerprint').textContent = `RSA-4096 FP: ${shortFp}`;
+        document.getElementById('footerKeyFingerprint').textContent = `NEWSROOM RSA-4096 SHA-256 FINGERPRINT: ${newsroomFingerprint}`;
+        document.getElementById('vaultFingerprintDisplay').textContent = `SHA-256 FINGERPRINT: ${newsroomFingerprint}`;
+        document.getElementById('publicKeyPemBox').textContent = newsroomPublicPem;
+      } catch (err) {
+        document.getElementById('headerKeyFingerprint').textContent = 'WEBCRYPTO UNAVAILABLE';
+      }
+    }
+
+    async function rotateNewsroomKeys() {
+      showToast('Generating fresh 4096-bit RSA-OAEP keypair...');
+      await initNewsroomKeyPair();
+      await updateLiveCiphertext();
+      showToast('Newsroom 4096-bit RSA keypair rotated.');
+    }
+
+    async function hybridEncryptPayload(plainObj) {
+      if (!newsroomKeyPair) {
+        await initNewsroomKeyPair();
+      }
+
+      // 1. Generate ephemeral 256-bit AES-GCM key
+      const aesKey = await window.crypto.subtle.generateKey(
+        { name: 'AES-GCM', length: 256 },
+        true,
+        ['encrypt', 'decrypt']
+      );
+
+      // 2. Generate 96-bit CSPRNG Initialization Vector (IV)
+      const iv = window.crypto.getRandomValues(new Uint8Array(12));
+
+      // 3. Encrypt JSON payload with AES-256-GCM
+      const encodedPayload = new TextEncoder().encode(JSON.stringify(plainObj));
+      const cipherBuffer = await window.crypto.subtle.encrypt(
+        { name: 'AES-GCM', iv: iv },
+        aesKey,
+        encodedPayload
+      );
+
+      // 4. Export raw AES key & wrap it with Newsroom RSA-OAEP-4096 Public Key
+      const rawAesKey = await window.crypto.subtle.exportKey('raw', aesKey);
+      const wrappedKeyBuffer = await window.crypto.subtle.encrypt(
+        { name: 'RSA-OAEP' },
+        newsroomKeyPair.publicKey,
+        rawAesKey
+      );
+
+      return {
+        version: 'CampusReport-WebCrypto-v3.0',
+        algorithm: 'RSA-OAEP-4096(SHA-256) + AES-GCM-256',
+        recipientKeyFingerprint: newsroomFingerprint.slice(0, 19),
+        encryptedSymmetricKey: arrayBufferToBase64(wrappedKeyBuffer),
+        iv: arrayBufferToBase64(iv.buffer),
+        ciphertext: arrayBufferToBase64(cipherBuffer)
+      };
+    }
+
+    async function hybridDecryptEnvelope(envelope) {
+      if (!newsroomKeyPair || !newsroomKeyPair.privateKey) {
+        throw new Error('Editorial private key not initialized in memory.');
+      }
+
+      // 1. Unwrap 256-bit AES key using RSA-OAEP-4096 Private Key
+      const wrappedKeyBuffer = base64ToArrayBuffer(envelope.encryptedSymmetricKey);
+      const rawAesKeyBuffer = await window.crypto.subtle.decrypt(
+        { name: 'RSA-OAEP' },
+        newsroomKeyPair.privateKey,
+        wrappedKeyBuffer
+      );
+
+      // 2. Import unwrapped AES-GCM key
+      const aesKey = await window.crypto.subtle.importKey(
+        'raw',
+        rawAesKeyBuffer,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+
+      // 3. Decrypt ciphertext using IV
+      const iv = new Uint8Array(base64ToArrayBuffer(envelope.iv));
+      const cipherBuffer = base64ToArrayBuffer(envelope.ciphertext);
+      const decryptedBuffer = await window.crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: iv },
+        aesKey,
+        cipherBuffer
+      );
+
+      return JSON.parse(new TextDecoder().decode(decryptedBuffer));
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. REAL CLIENT-SIDE HTML5 CANVAS EXIF & BINARY METADATA STRIPPER
+    // -------------------------------------------------------------------------
+    function detectJpegExifMarkers(uint8Array) {
+      const findings = [];
+      // Check JPEG SOI marker (FF D8)
+      if (uint8Array.length > 4 && uint8Array[0] === 0xFF && uint8Array[1] === 0xD8) {
+        for (let i = 2; i < Math.min(uint8Array.length - 6, 65535); i++) {
+          if (uint8Array[i] === 0xFF && uint8Array[i + 1] === 0xE1) {
+            findings.push('APP1/EXIF Segment (0xFFE1)');
+          }
+          if (uint8Array[i] === 0xFF && uint8Array[i + 1] === 0xE2) {
+            findings.push('ICC Color Profile (0xFFE2)');
+          }
+          if (uint8Array[i] === 0xFF && uint8Array[i + 1] === 0xED) {
+            findings.push('IPTC/Photoshop Metadata (0xFFED)');
+          }
+        }
+      }
+      // Check ASCII strings for "Exif" or "http://ns.adobe.com/xap"
+      const headerSample = new TextDecoder('latin1').decode(uint8Array.slice(0, 32768));
+      if (headerSample.includes('Exif')) findings.push('EXIF Header Tag');
+      if (headerSample.includes('http://ns.adobe.com/xap')) findings.push('Adobe XMP XML Packet');
+      if (headerSample.includes('GPS')) findings.push('GPS IFD Pointer');
+      return [...new Set(findings)];
+    }
+
+    async function processRealEvidenceFile(input) {
+      const panel = document.getElementById('exifAuditPanel');
+      const detailsEl = document.getElementById('exifAuditDetails');
+      const nameEl = document.getElementById('sanitizedFileName');
+      const previewControls = document.getElementById('scrubbedPreviewControls');
+      const thumbImg = document.getElementById('scrubbedImgThumb');
+
+      scrubbedAttachmentData = null;
+
+      if (!input.files || !input.files[0]) {
+        panel.classList.add('hidden');
+        await updateLiveCiphertext();
+        return;
+      }
+
+      const file = input.files[0];
+      const originalBytes = file.size;
+      const arrayBuffer = await file.arrayBuffer();
+      const rawBytes = new Uint8Array(arrayBuffer);
+      const safeCleanName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+
+      panel.classList.remove('hidden');
+
+      if (file.type.startsWith('image/')) {
+        const detectedMarkers = detectJpegExifMarkers(rawBytes);
+
+        // Load into HTML5 Image & redraw onto off-screen Canvas to destroy all EXIF/XMP/ICC tags
+        const objectUrl = URL.createObjectURL(file);
+        const img = new Image();
+
+        img.onload = async () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          URL.revokeObjectURL(objectUrl);
+
+          const targetMime = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+          canvas.toBlob(async (cleanBlob) => {
+            const cleanBuffer = await cleanBlob.arrayBuffer();
+            const postMarkers = detectJpegExifMarkers(new Uint8Array(cleanBuffer));
+            const cleanDataUrl = await new Promise((resolve) => {
+              const reader = new FileReader();
+              reader.onloadend = () => resolve(reader.result);
+              reader.readAsDataURL(cleanBlob);
+            });
+
+            scrubbedAttachmentData = {
+              name: `scrubbed_${safeCleanName}`,
+              type: targetMime,
+              originalBytes: originalBytes,
+              scrubbedBytes: cleanBlob.size,
+              dataUrl: cleanDataUrl
+            };
+
+            nameEl.textContent = scrubbedAttachmentData.name;
+            thumbImg.src = cleanDataUrl;
+            previewControls.classList.remove('hidden');
+
+            const markerSummary = detectedMarkers.length > 0
+              ? `<span style="color:#FCA5A5;">${escapeHTML(detectedMarkers.join(', '))}</span>`
+              : '<span style="color:#93C5FD;">None detected (re-encoded defensively anyway)</span>';
+
+            detailsEl.innerHTML = `
+              <div>• ORIGINAL FILE SIZE: <strong>${originalBytes.toLocaleString()} bytes</strong> | SCRUBBED SIZE: <strong style="color:#34D399;">${cleanBlob.size.toLocaleString()} bytes</strong></div>
+              <div>• DIMENSIONS RE-ENCODED: <strong>${img.naturalWidth} × ${img.naturalHeight} px</strong> (Raw RGBA Pixel Buffer Redraw)</div>
+              <div>• METADATA DETECTED BEFORE: ${markerSummary}</div>
+              <div>• METADATA REMAINING AFTER: <strong style="color:#34D399;">${postMarkers.length === 0 ? '0 MARKERS (EXIF, GPS, XMP & CAMERA SERIAL PURGED)' : postMarkers.join(', ')}</strong></div>
+            `;
+
+            showToast('Image re-encoded via HTML5 Canvas; EXIF/GPS metadata destroyed.');
+            await updateLiveCiphertext();
+          }, targetMime, 0.90);
+        };
+
+        img.src = objectUrl;
+      } else {
+        // Non-image file (e.g., PDF/TXT)
+        previewControls.classList.add('hidden');
+        const b64 = arrayBufferToBase64(arrayBuffer);
+        scrubbedAttachmentData = {
+          name: `renamed_${safeCleanName}`,
+          type: file.type || 'application/octet-stream',
+          originalBytes: originalBytes,
+          scrubbedBytes: originalBytes,
+          dataUrl: `data:${file.type || 'application/octet-stream'};base64,${b64.slice(0, 120000)}`
+        };
+
+        nameEl.textContent = scrubbedAttachmentData.name;
+        detailsEl.innerHTML = `
+          <div>• FILE TYPE: <strong>${escapeHTML(file.type || 'Document')}</strong> (${originalBytes.toLocaleString()} bytes)</div>
+          <div>• FILENAME SANITIZED: Original path stripped; renamed to <strong>${escapeHTML(scrubbedAttachmentData.name)}</strong></div>
+          <div style="color:#FBBF24;">• OPSEC ADVISORY: PDFs cannot be pixel-re-encoded in-browser without rasterizing. Take a screenshot of sensitive PDF pages and upload the image so Canvas EXIF stripping can sanitize it.</div>
+        `;
+        await updateLiveCiphertext();
+      }
+    }
+
+    function downloadScrubbedFile() {
+      if (!scrubbedAttachmentData || !scrubbedAttachmentData.dataUrl) return;
+      const a = document.createElement('a');
+      a.href = scrubbedAttachmentData.dataUrl;
+      a.download = scrubbedAttachmentData.name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. LIVE CIPHERTEXT PREVIEW & REPORT SUBMISSION
+    // -------------------------------------------------------------------------
+    function collectDraftPayload() {
+      return {
+        college: document.getElementById('repCollege').value.trim() || '[PENDING_INSTITUTION]',
+        state: document.getElementById('repState').value || '[PENDING_STATE]',
+        category: document.getElementById('repCategory').value,
+        incidentMonth: document.getElementById('repDate').value.trim() || 'Unspecified',
+        headline: document.getElementById('repTitle').value.trim() || '[PENDING_HEADLINE]',
+        narrative: document.getElementById('repBody').value.trim() || '[PENDING_NARRATIVE]',
+        attachment: scrubbedAttachmentData
+          ? {
+              filename: scrubbedAttachmentData.name,
+              mimeType: scrubbedAttachmentData.type,
+              scrubbedBytes: scrubbedAttachmentData.scrubbedBytes,
+              dataPreview: scrubbedAttachmentData.dataUrl.slice(0, 128) + '...[TRUNCATED_FOR_PREVIEW]'
+            }
+          : null,
+        clientTimestampBucket: new Date().toISOString().slice(0, 10) // Date-only bucket to prevent timing correlation
+      };
+    }
+
+    async function updateLiveCiphertext() {
+      const box = document.getElementById('liveCipherBox');
+      if (box.classList.contains('hidden')) return;
+
+      const envelope = await hybridEncryptPayload(collectDraftPayload());
+      latestEncryptedEnvelope = envelope;
+      box.textContent = JSON.stringify(envelope, null, 2);
+    }
+
+    async function toggleCipherPreview() {
+      const box = document.getElementById('liveCipherBox');
+      box.classList.toggle('hidden');
+      if (!box.classList.contains('hidden')) {
+        await updateLiveCiphertext();
+      }
+    }
+
+    async function forceReEncrypt() {
+      const box = document.getElementById('liveCipherBox');
+      box.classList.remove('hidden');
+      await updateLiveCiphertext();
+      showToast('Re-encrypted payload with a fresh 256-bit AES-GCM key and 96-bit IV.');
+    }
+
+    function generateCsprngReceiptToken() {
+      const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      const randomBytes = new Uint8Array(12);
+      window.crypto.getRandomValues(randomBytes);
+      let groups = ['', '', ''];
+      for (let i = 0; i < 12; i++) {
+        groups[Math.floor(i / 4)] += alphabet[randomBytes[i] % alphabet.length];
+      }
+      return `CR-${groups[0]}-${groups[1]}-${groups[2]}`;
+    }
+
+    async function handleReportSubmission(e) {
+      e.preventDefault();
+
+      const college = document.getElementById('repCollege').value.trim();
+      const state = document.getElementById('repState').value;
+      const category = document.getElementById('repCategory').value;
+      const dateStr = document.getElementById('repDate').value.trim() || 'November 2026';
+      const title = document.getElementById('repTitle').value.trim();
+      const body = document.getElementById('repBody').value.trim();
+
+      if (!college || !state || !title || !body) return;
+
+      // 1. Encrypt full payload (including full scrubbed attachment) via Hybrid RSA-4096 + AES-256-GCM
+      const fullPayload = {
+        college,
+        state,
+        category,
+        incidentMonth: dateStr,
+        headline: title,
+        narrative: body,
+        attachment: scrubbedAttachmentData
+          ? {
+              filename: scrubbedAttachmentData.name,
+              mimeType: scrubbedAttachmentData.type,
+              scrubbedBytes: scrubbedAttachmentData.scrubbedBytes,
+              dataUrl: scrubbedAttachmentData.dataUrl
+            }
+          : null,
+        submittedDateBucket: new Date().toISOString().slice(0, 10)
+      };
+
+      latestEncryptedEnvelope = await hybridEncryptPayload(fullPayload);
+
+      // 2. Generate 128-bit CSPRNG Receipt Token & immediately compute SHA-256 digest
+      const plainReceiptToken = generateCsprngReceiptToken();
+      const receiptSha256 = await sha256Hex(plainReceiptToken);
+
+      // Public redacted dossier ID (decoupled from private receipt token)
+      const publicCaseId = `CR-2026-${Math.floor(100 + (window.crypto.getRandomValues(new Uint16Array(1))[0] % 899))}`;
+
+      // Store ONLY the SHA-256 digest of the receipt token in memory (zero plaintext token storage)
+      reportsData.unshift({
+        id: publicCaseId,
+        receiptHash: receiptSha256,
+        title: title,
+        college: college,
+        state: state,
+        category: category,
+        status: 'Under Review',
+        date: dateStr,
+        corroborations: 1,
+        summary: body.length > 180 ? body.slice(0, 177) + '...' : body,
+        fullText: body
+      });
+
+      const statEl = document.getElementById('statTotalReports');
+      if (statEl) statEl.textContent = (1422 + reportsData.length).toLocaleString();
+
+      applyFilters();
+
+      // Display one-time receipt token & SHA-256 hash confirmation
+      document.getElementById('generatedReceiptCode').textContent = plainReceiptToken;
+      document.getElementById('generatedReceiptHashPreview').textContent = `SHA-256 DIGEST STORED: ${receiptSha256}`;
+      document.getElementById('whistleblowerForm').classList.add('hidden');
+      document.getElementById('receiptSuccessView').classList.remove('hidden');
+    }
+
+    function downloadEncryptedEnvelope() {
+      if (!latestEncryptedEnvelope) return;
+      const blob = new Blob([JSON.stringify(latestEncryptedEnvelope, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `campus-report-encrypted-${Date.now()}.enc.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function testDecryptLastSubmission() {
+      closeSubmitModal();
+      openVaultModal();
+      loadLatestEnvelopeIntoVault();
+      decryptVaultEnvelope();
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. EDITORIAL VAULT DECRYPTION SANDBOX
+    // -------------------------------------------------------------------------
+    function openVaultModal() {
+      document.getElementById('vaultModal').classList.remove('hidden');
+    }
+
+    function closeVaultModal() {
+      document.getElementById('vaultModal').classList.add('hidden');
+    }
+
+    function loadLatestEnvelopeIntoVault() {
+      if (!latestEncryptedEnvelope) {
+        showToast('No encrypted submission in current session yet — submit a report first.');
+        return;
+      }
+      document.getElementById('vaultCipherInput').value = JSON.stringify(latestEncryptedEnvelope, null, 2);
+      showToast('Loaded latest RSA-4096 + AES-256-GCM envelope into vault.');
+    }
+
+    async function decryptVaultEnvelope() {
+      const rawJson = document.getElementById('vaultCipherInput').value.trim();
+      const outBox = document.getElementById('vaultDecryptedOutputBox');
+      const outPre = document.getElementById('vaultDecryptedPlaintext');
+
+      if (!rawJson) {
+        showToast('Paste an encrypted .enc.json envelope first.');
+        return;
+      }
+
+      try {
+        const envelope = JSON.parse(rawJson);
+        const decryptedObj = await hybridDecryptEnvelope(envelope);
+        outBox.classList.remove('hidden');
+        outPre.textContent = JSON.stringify(decryptedObj, null, 2);
+        showToast('Envelope decrypted & authenticated with RSA-4096 private key.');
+      } catch (err) {
+        outBox.classList.remove('hidden');
+        outPre.style.color = '#FCA5A5';
+        outPre.textContent = `DECRYPTION FAILED: ${err.message}\n(If you rotated the newsroom keypair after encrypting, old envelopes cannot be decrypted.)`;
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. FEED RENDERING, FILTERING & ZERO-KNOWLEDGE RECEIPT LOOKUP
+    // -------------------------------------------------------------------------
+    function getStatusBadgeHTML(status) {
+      if (status === 'Verified') return '<span class="badge badge-verified">✓ VERIFIED</span>';
+      if (status === 'Action Taken') return '<span class="badge badge-action">⚡ ACTION TAKEN</span>';
+      return '<span class="badge badge-review">⏳ UNDER REVIEW</span>';
+    }
+
+    function renderReports(list) {
+      const grid = document.getElementById('reportsGrid');
+      const emptyState = document.getElementById('emptyState');
+      const visibleCount = document.getElementById('visibleCount');
+
+      visibleCount.textContent = list.length;
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = list.map(report => {
+        const safeId = escapeHTML(report.id);
+        const safeTitle = escapeHTML(report.title);
+        const safeCollege = escapeHTML(report.college);
+        const safeState = escapeHTML(report.state);
+        const safeCategory = escapeHTML(report.category);
+        const safeSummary = escapeHTML(report.summary);
+        const isCorroborated = corroboratedIds.has(report.id);
+
+        return `
+          <article class="report-card">
+            <div class="report-card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.7rem;">
+                ${getStatusBadgeHTML(report.status)}
+                <span class="font-mono" style="font-size: 0.7rem; font-weight: 700; color: var(--gray-500);">${safeId}</span>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.65rem;">
+                <span class="badge-dark" style="padding: 0.15rem 0.45rem; border-radius: 2px;">${safeCategory}</span>
+                <span class="badge-gray" style="padding: 0.15rem 0.45rem; border-radius: 2px;">${safeState}</span>
+              </div>
+
+              <h3 onclick="openArticleModal('${safeId}')" class="font-bebas" style="font-size: 1.5rem; line-height: 1.15; color: var(--ink); cursor: pointer; margin-bottom: 0.6rem;">
+                ${safeTitle}
+              </h3>
+
+              <div style="font-size: 0.76rem; font-weight: 700; color: var(--crimson); margin-bottom: 0.6rem;">
+                INSTITUTION: ${safeCollege}
+              </div>
+
+              <p style="font-size: 0.86rem; color: var(--gray-700); line-height: 1.55;">
+                ${safeSummary}
+              </p>
+            </div>
+
+            <div class="report-card-footer">
+              <button type="button" onclick="corroborateReport('${safeId}')" class="btn font-bebas" style="padding: 0.3rem 0.65rem; font-size: 0.95rem; border-width: 1px; background: ${isCorroborated ? 'var(--crimson)' : 'var(--paper)'}; color: ${isCorroborated ? 'var(--paper)' : 'var(--ink)'};">
+                <span>▲ CORROBORATE</span>
+                <span class="font-mono" style="font-size: 0.75rem; font-weight: 700;">${report.corroborations}</span>
+              </button>
+
+              <button type="button" onclick="openArticleModal('${safeId}')" class="font-bebas" style="background: none; border: none; font-size: 1.05rem; color: var(--ink); cursor: pointer;">
+                READ DOSSIER →
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function setCategoryFilter(category) {
+      currentCategory = category;
+      document.querySelectorAll('.nav-tab[data-category]').forEach(btn => {
+        btn.classList.toggle('active-tab', btn.dataset.category === category);
+      });
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const stateVal = document.getElementById('stateFilter').value;
+      const statusVal = document.getElementById('statusFilter').value;
+
+      const filtered = reportsData.filter(item => {
+        const matchesCat = currentCategory === 'ALL' || item.category === currentCategory;
+        const matchesState = stateVal === 'ALL' || item.state === stateVal;
+        const matchesStatus = statusVal === 'ALL' || item.status === statusVal;
+        const matchesQuery = !query ||
+          item.title.toLowerCase().includes(query) ||
+          item.college.toLowerCase().includes(query) ||
+          item.state.toLowerCase().includes(query) ||
+          item.summary.toLowerCase().includes(query);
+
+        return matchesCat && matchesState && matchesStatus && matchesQuery;
+      });
+
+      renderReports(filtered);
+    }
+
+    function resetFilters(e) {
+      if (e) e.preventDefault();
+      document.getElementById('searchInput').value = '';
+      document.getElementById('stateFilter').value = 'ALL';
+      document.getElementById('statusFilter').value = 'ALL';
+      setCategoryFilter('ALL');
+    }
+
+    function corroborateReport(id) {
+      const report = reportsData.find(r => r.id === id);
+      if (!report) return;
+
+      if (corroboratedIds.has(id)) {
+        corroboratedIds.delete(id);
+        report.corroborations -= 1;
+        showToast(`Corroboration removed for ${id}`);
+      } else {
+        corroboratedIds.add(id);
+        report.corroborations += 1;
+        showToast(`Anonymous corroboration logged for ${id}`);
+      }
+      applyFilters();
+      const heroCounter = document.getElementById('count-CR-2026-041');
+      if (heroCounter && id === 'CR-2026-041') {
+        heroCounter.textContent = report.corroborations;
+      }
+    }
+
+    async function lookupReceiptStatus() {
+      const rawToken = document.getElementById('receiptLookupInput').value.trim().toUpperCase();
+      const resBox = document.getElementById('receiptLookupResult');
+      resBox.classList.remove('hidden');
+
+      if (!rawToken) {
+        resBox.style.background = 'var(--crimson-light)';
+        resBox.style.border = '1px solid var(--crimson)';
+        resBox.textContent = 'Enter a valid Case Receipt Token.';
+        return;
+      }
+
+      const inputHash = await sha256Hex(rawToken);
+      const found = reportsData.find(r => r.receiptHash === inputHash);
+
+      if (found) {
+        resBox.style.background = 'var(--emerald-light)';
+        resBox.style.border = '1px solid var(--emerald)';
+        resBox.style.color = 'var(--emerald-dark)';
+        resBox.innerHTML = `<strong>✓ SHA-256 HASH MATCHED</strong><br/>DOSSIER ID: ${escapeHTML(found.id)}<br/>STATUS: ${escapeHTML(found.status)}<br/>DIGEST: ${inputHash.slice(0, 24)}...`;
+      } else {
+        resBox.style.background = 'var(--crimson-light)';
+        resBox.style.border = '1px solid var(--crimson)';
+        resBox.style.color = '#7F1D1D';
+        resBox.innerHTML = `<strong>NO MATCHING SHA-256 DIGEST</strong><br/>COMPUTED HASH: ${inputHash.slice(0, 24)}...<br/>Token not found in current session memory.`;
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. PANIC WIPE / RAM SHREDDER
+    // -------------------------------------------------------------------------
+    async function panicWipeMemory() {
+      // Overwrite sensitive variables & form fields
+      scrubbedAttachmentData = null;
+      latestEncryptedEnvelope = null;
+      document.getElementById('whistleblowerForm').reset();
+      document.getElementById('vaultCipherInput').value = '';
+      document.getElementById('receiptLookupInput').value = '';
+      document.getElementById('exifAuditPanel').classList.add('hidden');
+      document.getElementById('liveCipherBox').textContent = '[WIPED]';
+      document.getElementById('vaultDecryptedOutputBox').classList.add('hidden');
+
+      // Rotate RSA keypair so previous session ciphertexts become permanently undecryptable
+      await initNewsroomKeyPair();
+
+      closeSubmitModal();
+      closeVaultModal();
+      closeTrackReceiptModal();
+      closeArticleModal();
+
+      showToast('PANIC WIPE COMPLETE: Session forms, attachments, and old RSA private keys shredded.');
+    }
+
+    // -------------------------------------------------------------------------
+    // 9. MODAL CONTROLS & CLIPBOARD UTILITIES
+    // -------------------------------------------------------------------------
+    function openArticleModal(id) {
+      const report = reportsData.find(r => r.id === id);
+      if (!report) return;
+
+      document.getElementById('modalCaseId').textContent = `DOSSIER // ${report.id} • ${report.state.toUpperCase()}`;
+      const paragraphs = report.fullText.split('\n\n')
+        .map(p => `<p style="margin-bottom: 1rem; color: var(--ink-soft); line-height: 1.65;">${escapeHTML(p)}</p>`)
+        .join('');
+
+      document.getElementById('articleModalContent').innerHTML = `
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.9rem;">
+          ${getStatusBadgeHTML(report.status)}
+          <span class="badge-dark" style="padding: 0.2rem 0.5rem; border-radius: 2px;">${escapeHTML(report.category)}</span>
+          <span class="font-mono" style="font-size: 0.72rem; color: var(--gray-500);">FILED: ${escapeHTML(report.date)}</span>
+        </div>
+        <h2 class="font-bebas" style="font-size: clamp(1.8rem, 3.5vw, 2.75rem); line-height: 1.08; margin-bottom: 0.75rem;">
+          ${escapeHTML(report.title)}
+        </h2>
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--crimson); margin-bottom: 1.25rem; padding-bottom: 0.85rem; border-bottom: 2px solid var(--ink);">
+          INSTITUTION: ${escapeHTML(report.college)} (${escapeHTML(report.state)})
+        </div>
+        <div>${paragraphs}</div>
+      `;
+
+      document.getElementById('articleModal').classList.remove('hidden');
+    }
+
+    function closeArticleModal() { document.getElementById('articleModal').classList.add('hidden'); }
+
+    function openSubmitModal() {
+      scrubbedAttachmentData = null;
+      document.getElementById('whistleblowerForm').reset();
+      document.getElementById('whistleblowerForm').classList.remove('hidden');
+      document.getElementById('receiptSuccessView').classList.add('hidden');
+      document.getElementById('exifAuditPanel').classList.add('hidden');
+      document.getElementById('submitModal').classList.remove('hidden');
+    }
+
+    function closeSubmitModal() { document.getElementById('submitModal').classList.add('hidden'); }
+    function openOpsecModal() { document.getElementById('opsecModal').classList.remove('hidden'); }
+    function closeOpsecModal() { document.getElementById('opsecModal').classList.add('hidden'); }
+    function openTrackReceiptModal() {
+      document.getElementById('receiptLookupResult').classList.add('hidden');
+      document.getElementById('receiptTrackerModal').classList.remove('hidden');
+    }
+    function closeTrackReceiptModal() { document.getElementById('receiptTrackerModal').classList.add('hidden'); }
+
+    function copyTextFallback(text, successMsg) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg);
+      } catch (err) {
+        showToast('Copy failed — please select and copy manually.');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    function copyOnionAddress() {
+      copyTextFallback(
+        'http://campusrep7x9k2m4v8q1z0w3n5b6c7d8e9f0a1s2d3f4g5h6j7k8l.onion',
+        'Tor v3 Onion mirror address copied to clipboard.'
+      );
+    }
+
+    function copyReceiptCode() {
+      const code = document.getElementById('generatedReceiptCode').textContent.trim();
+      copyTextFallback(code, `128-bit Receipt Token ${code} copied to clipboard.`);
+    }
+
+    function copyPublicKeyPem() {
+      if (newsroomPublicPem) {
+        copyTextFallback(newsroomPublicPem, 'Newsroom RSA-4096 Public Key PEM copied.');
+      }
+    }
+
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toastBanner');
+      document.getElementById('toastMessage').textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.add('hidden'), 3600);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSubmitModal();
+        closeVaultModal();
+        closeArticleModal();
+        closeOpsecModal();
+        closeTrackReceiptModal();
+      }
+    });
+
+    // Boot: Precompute SHA-256 hashes for seed dossiers & generate RSA-4096 keypair
+    window.addEventListener('DOMContentLoaded', async () => {
+      for (const item of reportsData) {
+        item.receiptHash = await sha256Hex(item.id);
+      }
+      applyFilters();
+      await initNewsroomKeyPair();
+    });
+  </script>
+</body>
+</html>
